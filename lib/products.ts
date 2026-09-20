@@ -1,5 +1,5 @@
 import { api } from "./api";
-import type { Category, PaginatedProducts, Product } from "@/types";
+import type { Category, Order, PaginatedProducts, Product } from "@/types";
 
 export interface ProductQuery {
   category?: string;
@@ -41,6 +41,15 @@ export function fetchCategories(): Promise<{ categories: Category[] }> {
 
 export function fetchOrder(id: string): Promise<{ order: import("@/types").Order }> {
   return api<{ order: import("@/types").Order }>(`/orders/${id}`);
+}
+
+/**
+ * Confirms a Stripe checkout from the return redirect. Stripe sends the customer
+ * back before the webhook is guaranteed to have landed, so the success page asks
+ * the server to settle the session and report the order's real state.
+ */
+export function verifyCheckoutSession(sessionId: string): Promise<{ order: Order }> {
+  return api<{ order: Order }>(`/orders/stripe-session/${encodeURIComponent(sessionId)}`);
 }
 
 export function fetchMyOrders(): Promise<{ orders: import("@/types").Order[] }> {

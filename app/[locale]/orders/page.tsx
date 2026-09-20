@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Button from "@/components/Button";
+import PaymentStatusBadge from "@/components/PaymentStatusBadge";
 import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { fetchMyOrders } from "@/lib/products";
@@ -98,10 +99,11 @@ export default function OrdersPage() {
                       {t("items", { count })}
                     </p>
                   </div>
-                  <div className="flex items-center gap-6">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                     <span className={`text-sm capitalize ${statusColor(order.status)}`}>
                       {t(`status.${STATUS_KEY[order.status] || "pending"}`)}
                     </span>
+                    <PaymentStatusBadge status={order.paymentStatus} />
                     <span className="text-sm font-medium">{formatINR(order.total)}</span>
                   </div>
                 </div>

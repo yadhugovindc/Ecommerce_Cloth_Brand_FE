@@ -4,27 +4,52 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Button from "@/components/Button";
+import PaymentStatusBadge from "@/components/PaymentStatusBadge";
 import { Link } from "@/i18n/navigation";
-import { fetchOrder } from "@/lib/products";
+import { fetchOrder, verifyCheckoutSession } from "@/lib/products";
 import { formatINR } from "@/lib/format";
+import { useCart } from "@/context/CartContext";
 import type { Order } from "@/types";
 
 function OrderSuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("id") || "";
+  const sessionId = searchParams.get("session_id") || "";
+  const { clearCart } = useCart();
   const t = useTranslations("orderSuccess");
   const [order, setOrder] = useState<Order | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!orderId) {
+    if (!orderId && !sessionId) {
       setError("No order reference provided");
       return;
     }
-    fetchOrder(orderId)
-      .then((d) => setOrder(d.order))
-      .catch(() => setError("Could not load your order"));
-  }, [orderId]);
+    setError("");
+
+    let cancelled = false;
+    // A Stripe return is confirmed against the session rather than trusted from
+    // the URL, which also settles the order when the webhook is still in flight.
+    const request = sessionId
+      ? verifyCheckoutSession(sessionId)
+      : fetchOrder(orderId);
+
+    request
+      .then(({ order: loaded }) => {
+        if (cancelled) return;
+        setOrder(loaded);
+        // Only empty the basket once a card payment is confirmed; abandoning the
+        // Stripe page must leave the cart intact.
+        if (sessionId && loaded.paymentStatus === "paid") clearCart();
+      })
+      .catch(() => {
+        if (!cancelled) setError("Could not load your order");
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [orderId, sessionId, clearCart]);
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-24 text-center">
@@ -46,10 +71,16 @@ function OrderSuccessContent() {
 
       {order && (
         <div className="mt-10 border border-line bg-white p-6 text-left">
-          <div className="flex items-center justify-between border-b border-line pb-4">
+          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-line pb-4">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-muted">{t("orderTotal")}</p>
               <p className="mt-1 text-2xl font-medium">{formatINR(order.total)}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted">{t("paymentLabel")}</p>
+              <div className="mt-2 flex justify-end">
+                <PaymentStatusBadge status={order.paymentStatus} />
+              </div>
             </div>
             <div className="text-right">
               <p className="text-xs uppercase tracking-[0.2em] text-muted">{t("statusLabel")}</p>

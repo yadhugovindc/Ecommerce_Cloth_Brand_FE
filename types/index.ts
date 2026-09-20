@@ -86,6 +86,8 @@ export interface Order {
   paymentMethod: string;
   paymentStatus: string;
   status: string;
+  /** Set when a paid order could not be fulfilled and needs manual resolution. */
+  fulfillmentIssue?: string;
   createdAt: string;
 }
 

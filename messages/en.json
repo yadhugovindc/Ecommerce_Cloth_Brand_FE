@@ -148,6 +148,7 @@
     "loading": "Loading your order…",
     "orderTotal": "Order total",
     "statusLabel": "Status",
+    "paymentLabel": "Payment",
     "shippingTo": "Shipping to {name}, {line1}, {city} {pincode}",
     "continue": "Continue Shopping",
     "viewOrders": "View My Orders",
@@ -166,6 +167,12 @@
       "delivered": "Delivered",
       "cancelled": "Cancelled"
     }
+  },
+  "paymentStatus": {
+    "paid": "Paid",
+    "pending": "Payment pending",
+    "failed": "Payment failed",
+    "refunded": "Refunded"
   },
   "auth": {
     "signInTitle": "Welcome back",
