@@ -1,0 +1,200 @@
+{
+  "common": {
+    "loading": "Loading…",
+    "free": "Free",
+    "backToShop": "Back to shop",
+    "viewAll": "View all →"
+  },
+  "header": {
+    "women": "Women",
+    "men": "Men",
+    "dresses": "Dresses",
+    "shopAll": "Shop All",
+    "orders": "My Orders",
+    "admin": "Admin Dashboard",
+    "logout": "Logout",
+    "signIn": "Sign In",
+    "register": "Create Account",
+    "cartAria": "Cart",
+    "menuAria": "Toggle menu",
+    "accountAria": "Account",
+    "languageAria": "Change language"
+  },
+  "footer": {
+    "tagline": "Quiet luxury. Everyday ease. Timeless essentials in natural fabrics, made to be worn for years.",
+    "shopTitle": "Shop",
+    "helpTitle": "Help",
+    "contact": "Contact",
+    "sizeGuide": "Size Guide",
+    "shipping": "Shipping & Returns",
+    "newsletterTitle": "Stay in touch",
+    "newsletterText": "New drops, private previews and a little quiet inspiration. No noise.",
+    "rights": "© {year} ATELIER. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "The Autumn Edit",
+      "title1": "Quiet luxury.",
+      "title2": "Everyday ease.",
+      "subtitle": "Timeless essentials in natural fabrics — cut with intention, made to be lived in season after season.",
+      "shopWomen": "Shop Women",
+      "shopMen": "Shop Men"
+    },
+    "heroCard": {
+      "season": "Autumn / Winter",
+      "title": "The Autumn Edit",
+      "text": "Wool, silk, and linen in the season's quietest palette.",
+      "cta": "Explore the edit"
+    },
+    "categoriesTitle": "Shop by Category",
+    "bestSellersTitle": "Best Sellers",
+    "newArrivalsTitle": "New Arrivals",
+    "newIn": "Shop new in →"
+  },
+  "shop": {
+    "eyebrow": "The Edit",
+    "allProducts": "All Products",
+    "pieces": "{count, plural, one {# piece} other {# pieces}}",
+    "search": "Search…",
+    "sort": {
+      "newest": "Newest",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "topRated": "Top Rated",
+      "popular": "Most Popular"
+    },
+    "category": "Category",
+    "allCategories": "All",
+    "price": "Price",
+    "allPrices": "All prices",
+    "price0": "Under ₹1,000",
+    "price1": "₹1,000 – ₹2,500",
+    "price2": "₹2,500 – ₹5,000",
+    "price3": "Over ₹5,000",
+    "prev": "← Prev",
+    "next": "Next →",
+    "pageOf": "Page {page} of {pages}"
+  },
+  "product": {
+    "home": "Home",
+    "shop": "Shop",
+    "reviews": "({count} reviews)",
+    "inStock": "{stock} in stock",
+    "soldOut": "Sold out",
+    "color": "Color — {color}",
+    "size": "Size — {size}",
+    "sizeGuide": "Size guide",
+    "addToCart": "Add to Cart",
+    "added": "Added ✓",
+    "details": {
+      "material": "Material",
+      "brand": "Brand",
+      "sku": "SKU",
+      "category": "Category"
+    },
+    "shippingNote": "Free shipping on orders over ₹1,999 · 30-day returns · Ships within 24 hours",
+    "notFound": {
+      "title": "Product not found",
+      "body": "The piece you're looking for may have sold out."
+    },
+    "related": "You May Also Like"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "itemCount": "{count, plural, one {# item} other {# items}}",
+    "color": "Color: {color}",
+    "size": "Size: {size}",
+    "remove": "Remove",
+    "emptyTitle": "Your cart is empty",
+    "emptyBody": "Nothing in here yet — discover pieces made to last.",
+    "startShopping": "Start Shopping",
+    "summaryTitle": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "freeShippingHint": "Add {amount} more for free shipping",
+    "proceed": "Proceed to Checkout",
+    "continue": "Continue shopping"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "loginTitle": "Sign in to checkout",
+    "loginBody": "Create an account or sign in to place your order.",
+    "emptyTitle": "Nothing to check out",
+    "emptyBody": "Your cart is empty.",
+    "contactTitle": "Contact",
+    "contactBody": "Signed in as {email}",
+    "shippingTitle": "Shipping Address",
+    "paymentTitle": "Payment",
+    "fullName": "Full Name *",
+    "line1": "Address Line 1 *",
+    "line2": "Address Line 2 (optional)",
+    "city": "City *",
+    "state": "State *",
+    "pincode": "PIN Code *",
+    "phone": "Phone *",
+    "cod": "Cash on Delivery",
+    "codDesc": "Pay when it arrives",
+    "card": "Card / UPI",
+    "cardDesc": "Coming soon",
+    "orderTitle": "Your Order",
+    "placeOrder": "Place Order · {total}",
+    "placingOrder": "Placing order…",
+    "editCart": "Edit cart"
+  },
+  "orderSuccess": {
+    "title": "Thank you for your order",
+    "received": "Order #{id} has been received. A confirmation has been sent to your email.",
+    "loading": "Loading your order…",
+    "orderTotal": "Order total",
+    "statusLabel": "Status",
+    "shippingTo": "Shipping to {name}, {line1}, {city} {pincode}",
+    "continue": "Continue Shopping",
+    "viewOrders": "View My Orders",
+    "backHome": "Back to home"
+  },
+  "ordersPage": {
+    "signInTitle": "Sign in to view your orders",
+    "title": "My Orders",
+    "empty": "You haven't placed any orders yet.",
+    "startShopping": "Start Shopping",
+    "items": "{count, plural, one {# item} other {# items}}",
+    "status": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "shipped": "Shipped",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    }
+  },
+  "auth": {
+    "signInTitle": "Welcome back",
+    "signInSubtitle": "Sign in to your ATELIER account",
+    "registerTitle": "Create your account",
+    "registerSubtitle": "Join ATELIER — it only takes a minute",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 6 characters",
+    "submitSignIn": "Sign In",
+    "signingIn": "Signing in…",
+    "submitRegister": "Create Account",
+    "registering": "Creating account…",
+    "demo": "Demo account: demo@atelier.com / demo123",
+    "noAccount": "New to ATELIER?",
+    "haveAccount": "Already have an account?",
+    "createLink": "Create an account",
+    "signInLink": "Sign in"
+  },
+  "productCard": {
+    "new": "New",
+    "sale": "Sale",
+    "addToCart": "Add to cart",
+    "soldOut": "Sold out",
+    "noImage": "No image"
+  },
+  "quantity": {
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity"
+  }
+}
