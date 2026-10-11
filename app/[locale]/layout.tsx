@@ -5,6 +5,7 @@ import { routing, type AppLocale } from "@/i18n/routing";
 import { Providers } from "@/context/Providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StoreChat from "@/components/StoreChat";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -31,6 +32,7 @@ export default async function LocaleLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <StoreChat />
       </Providers>
     </NextIntlClientProvider>
   );

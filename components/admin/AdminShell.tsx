@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV = [
   { label: "Dashboard", href: "/admin", icon: "▦" },
@@ -45,7 +46,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="flex min-h-screen bg-[#f1efe9]">
+    <div className="flex min-h-screen bg-bg">
       {/* Sidebar */}
       <aside className="flex w-56 shrink-0 flex-col border-r border-line bg-dark text-bg">
         <Link href="/admin" className="border-b border-bg/10 px-6 py-5">
@@ -86,13 +87,14 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
 
       {/* Main */}
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex items-center justify-between border-b border-line bg-white px-8 py-4">
+        <div className="flex items-center justify-between border-b border-line bg-bg px-8 py-4">
           <p className="text-xs uppercase tracking-[0.2em] text-muted">
             {NAV.find((n) =>
               n.href === "/admin" ? pathname === "/admin" : pathname.startsWith(n.href)
             )?.label || "Admin"}
           </p>
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <Link
               href="/"
               className="text-xs uppercase tracking-[0.15em] text-muted hover:text-ink"

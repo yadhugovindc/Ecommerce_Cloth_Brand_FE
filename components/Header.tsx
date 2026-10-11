@@ -7,6 +7,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   const t = useTranslations("header");
@@ -72,6 +73,7 @@ export default function Header() {
 
         {/* Icons */}
         <div className="flex items-center gap-3 sm:gap-4">
+          <ThemeToggle />
           {/* Language switcher */}
           <div className="relative">
             <button

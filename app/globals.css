@@ -14,6 +14,36 @@
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
 }
 
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #171b1a;
+  --color-ink: #ecebe5;
+  --color-muted: #b0b4ae;
+  --color-cream: #303835;
+  --color-dark: #101413;
+  --color-line: #414a46;
+}
+
+:root[data-theme="dark"] :is([class~="bg-white"], [class*="bg-white/"]) {
+  background-color: #232927;
+}
+
+.chat-error-message {
+  border-color: #fca5a5;
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+:root[data-theme="dark"] .chat-error-message {
+  border-color: #7f1d1d;
+  background-color: #351c1d;
+  color: #fca5a5;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-ink);

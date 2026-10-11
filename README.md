@@ -19,6 +19,9 @@ The backend must be running on `http://localhost:5000` (see `backend/`).
 | ----------------------- | -------------------------- |
 | `NEXT_PUBLIC_API_URL`   | `http://localhost:5000/api`|
 
+The assistant UI sends messages to the backend `POST /api/chat` endpoint. Configure
+OpenRouter credentials in the backend environment; see `backend/README.md`.
+
 ## Pages
 
 | Route                 | Description                              |

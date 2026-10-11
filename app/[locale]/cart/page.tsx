@@ -13,8 +13,33 @@ import { imageUrl } from "@/lib/api";
 export default function CartPage() {
   const t = useTranslations("cart");
   const tc = useTranslations("common");
-  const { items, subtotal, updateQuantity, removeItem } = useCart();
+  const { items, subtotal, loading, updateQuantity, removeItem } = useCart();
   const itemCount = items.reduce((n, i) => n + i.quantity, 0);
+
+  if (loading) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-busy="true">
+        <span className="sr-only" role="status">{tc("loading")}</span>
+        <div className="h-10 w-56 animate-pulse bg-cream/60" />
+        <div className="mt-3 h-4 w-24 animate-pulse bg-cream/50" />
+        <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_360px]">
+          <div className="divide-y divide-line border-y border-line">
+            {[0, 1].map((row) => (
+              <div key={row} className="flex gap-4 py-6 sm:gap-6">
+                <div className="aspect-4/5 w-24 shrink-0 animate-pulse bg-cream/50 sm:w-28" />
+                <div className="flex flex-1 flex-col gap-3 py-1">
+                  <div className="h-4 w-2/3 animate-pulse bg-cream/50" />
+                  <div className="h-3 w-1/3 animate-pulse bg-cream/40" />
+                  <div className="mt-auto h-8 w-28 animate-pulse bg-cream/50" />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="h-64 animate-pulse border border-line bg-cream/30" />
+        </div>
+      </div>
+    );
+  }
 
   if (items.length === 0) {
     return (
@@ -41,7 +66,7 @@ export default function CartPage() {
           {items.map((item, index) => (
             <div key={`${item.productId}-${item.size}-${item.color}`} className="flex gap-4 py-6 sm:gap-6">
               <Link href={`/product/${item.slug}`} className="block shrink-0">
-                <div className="relative aspect-[4/5] w-24 overflow-hidden bg-cream/40 sm:w-28">
+                <div className="relative aspect-4/5 w-24 overflow-hidden bg-cream/40 sm:w-28">
                   {item.image ? (
                     <Image src={imageUrl(item.image)} alt={item.name} fill sizes="112px" className="object-cover" />
                   ) : null}

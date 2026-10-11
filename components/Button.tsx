@@ -8,7 +8,7 @@ type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-dark text-bg hover:bg-ink transition-colors disabled:opacity-40 disabled:cursor-not-allowed",
+    "bg-dark text-white hover:opacity-85 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed",
   outline:
     "border border-ink text-ink hover:bg-ink hover:text-bg transition-colors disabled:opacity-40 disabled:cursor-not-allowed",
   ghost: "text-ink underline-offset-4 hover:underline",

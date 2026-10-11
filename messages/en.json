@@ -5,6 +5,24 @@
     "backToShop": "Back to shop",
     "viewAll": "View all →"
   },
+  "chat": {
+    "title": "ATELIER Assistant",
+    "subtitle": "Product and store help",
+    "open": "Chat with us",
+    "close": "Close chat",
+    "send": "Send message",
+    "placeholder": "Ask about a product…",
+    "greeting": "Hello. I can help you find pieces, check product details, and answer store questions.",
+    "thinking": "Finding an answer…",
+    "suggestions": "Suggested questions",
+    "presets": {
+      "shirts": "Show me shirts",
+      "linen": "Find linen styles",
+      "order": "Check my order status",
+      "cart": "What's in my cart?"
+    },
+    "error": "Something went wrong. Please try again."
+  },
   "header": {
     "women": "Women",
     "men": "Men",

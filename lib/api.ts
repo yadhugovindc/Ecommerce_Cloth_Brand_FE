@@ -36,6 +36,7 @@ export async function api<T>(
       data: options.body,
       headers: {
         ...(isFormData ? {} : { "Content-Type": "application/json" }),
+        "ngrok-skip-browser-warning": "true",
         ...options.headers,
       },
       withCredentials: true,

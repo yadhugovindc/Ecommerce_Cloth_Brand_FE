@@ -4,6 +4,19 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["aerosol-prelaunch-cape.ngrok-free.dev"],
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "http://localhost:5000/api/:path*",
+      },
+      {
+        source: "/uploads/:path*",
+        destination: "http://localhost:5000/uploads/:path*",
+      },
+    ];
+  },
   images: {
     // Product uploads may be SVG; without this the optimizer 400s on them.
     dangerouslyAllowSVG: true,
